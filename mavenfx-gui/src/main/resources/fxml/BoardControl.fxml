@@ -1,0 +1,6 @@
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ScrollPane?>
+<fx:root type="ScrollPane" xmlns:fx="http://javafx.com/fxml"
+         vbarPolicy="ALWAYS" hbarPolicy="ALWAYS">
+    <Canvas fx:id="canvas" />
+</fx:root>
