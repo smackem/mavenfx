@@ -1,0 +1,7 @@
+<?import javafx.scene.layout.*?>
+<?import net.smackem.mavenfx.gui.presentation.BoardView?>
+<fx:root type="BorderPane" xmlns:fx="http://javafx.com/fxml">
+    <center>
+        <BoardView fx:id="boardControl" prefWidth="400" prefHeight="400" maxWidth="Infinity" maxHeight="Infinity" />
+    </center>
+</fx:root>
