@@ -12,8 +12,13 @@ package net.smackem.mavenfx.model;
 //        newpath = p.continuepath(n)
 //        q.enqueue(newpath.TotalCost + estimateCost(n, destination), newpath)
 //return null
-
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Objects;
+import java.util.PriorityQueue;
+import java.util.Set;
 import java.util.function.Function;
 
 /**
@@ -26,7 +31,7 @@ public final class Path<TNode> {
 
     @FunctionalInterface
     public interface DistanceFunc<TNode> {
-        double calculateDistance(Path<TNode> path, TNode destination);
+        double calc(Path<TNode> path, TNode destination);
     }
 
     public TNode getHead() {
@@ -81,7 +86,7 @@ public final class Path<TNode> {
             closed.add(path.head);
 
             for (final TNode node : neighbours.apply(path.head)) {
-                final double d = distance.calculateDistance(path, node);
+                final double d = distance.calc(path, node);
                 final Path<TNode> newPath = path.addStep(node, d);
 
                 open.add(new PrioritizedPath<>(newPath.totalCost + estimate.apply(node), newPath));
@@ -109,7 +114,7 @@ public final class Path<TNode> {
         return new Path<>(step, this, this.totalCost + stepCost);
     }
 
-    private static class PrioritizedPath<TNode> implements Comparable<PrioritizedPath> {
+    private static class PrioritizedPath<TNode> implements Comparable<PrioritizedPath<TNode>> {
         final double estimatedCost;
         final Path<TNode> path;
 
@@ -119,7 +124,7 @@ public final class Path<TNode> {
         }
 
         @Override
-        public int compareTo(PrioritizedPath o) {
+        public int compareTo(PrioritizedPath<TNode> o) {
             return Double.compare(this.estimatedCost, o.estimatedCost);
         }
     }

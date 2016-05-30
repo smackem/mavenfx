@@ -1,12 +1,13 @@
 package net.smackem.mavenfx.gui.util;
 
-import com.google.common.base.Strings;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
+
+import com.google.common.base.Strings;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 /**
  * Non-instantiable class that provides utility methods for controls.
@@ -24,7 +25,7 @@ public final class Views {
      *
      * @param fxmlResourcePath
      *      The resource path to the FXML resource, to be loaded by the
-     *      {@link ClassLoader} that loaded the class of {@code control}.
+     *      {@link ClassLoader} that loaded the class of {@code view}.
      */
     public static void loadFxml(Parent view, String fxmlResourcePath) {
         Objects.requireNonNull(view);

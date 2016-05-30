@@ -7,18 +7,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import net.smackem.mavenfx.gui.util.Views;
 import net.smackem.mavenfx.model.Board;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author pbo
  */
 public class MainView extends BorderPane {
 
-    private final Logger log = LoggerFactory.getLogger(MainView.class);
-
     @FXML
-    @SuppressWarnings("unused")
     private BoardView boardControl;
 
     /**

@@ -1,4 +1,4 @@
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
 <?import net.smackem.mavenfx.gui.presentation.BoardView?>
 <fx:root type="BorderPane" xmlns:fx="http://javafx.com/fxml">
     <center>
