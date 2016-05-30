@@ -34,7 +34,7 @@
     <bytecodeTargetLevel>
       <module name="mavenfx-gui" target="1.8" />
       <module name="mavenfx-model" target="1.8" />
-      <module name="mavenfx-parent" target="1.8" />
+      <module name="mavenfx-parent" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

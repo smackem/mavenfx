@@ -1,8 +1,5 @@
 package net.smackem.mavenfx.gui.presentation;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
@@ -16,6 +13,8 @@ import javafx.scene.shape.Line;
 import net.smackem.mavenfx.gui.util.Views;
 import net.smackem.mavenfx.model.Board;
 import net.smackem.mavenfx.model.Cell;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author pbo
@@ -70,7 +69,7 @@ public class BoardView extends ScrollPane {
         final Cell cell = board.getCell(col, row);
 
         if (cell != null) {
-            log.info("Pressed {}/{}: {}", col, row, cell.getWeight());
+            log.debug("Pressed {}/{}: {}", col, row, cell.getWeight());
             this.weightToSet = cell.getWeight() == 0 ? 1 : 0;
             cell.setWeight(this.weightToSet);
         }
