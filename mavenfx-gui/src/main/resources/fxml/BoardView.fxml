@@ -6,6 +6,6 @@
          vbarPolicy="ALWAYS" hbarPolicy="ALWAYS">
     <Group>
         <Canvas fx:id="canvas" />
-        <Line fx:id="dragLine" startX="10" startY="10" endX="50" endY="50" visible="false" />
+        <Line fx:id="dragLine" visible="false" stroke="GREEN" strokeWidth="4" strokeLineCap="ROUND" opacity="0.3" />
     </Group>
 </fx:root>

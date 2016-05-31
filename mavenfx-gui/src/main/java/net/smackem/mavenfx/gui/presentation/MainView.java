@@ -20,7 +20,7 @@ public class MainView extends BorderPane {
      * Initializes a new instance of {@link MainView}.
      */
     public MainView() {
-        Views.loadFxml(this, "fxml/MainControl.fxml");
+        Views.loadFxml(this, "fxml/MainView.fxml");
 
         boardControl.boardProperty().set(new Board(100, 100));
         setBackground(new Background(new BackgroundFill(Color.AQUA, null, null)));

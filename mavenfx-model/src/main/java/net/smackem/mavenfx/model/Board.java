@@ -18,16 +18,19 @@ public final class Board {
         this.cells = new Cell[width * height];
 
         int index = 0;
-        for (int col = 0; col < width; col++) {
-            for (int row = 0; row < height; row++) {
+        for (int row = 0; row < height; row++) {
+            for (int col = 0; col < width; col++) {
                 this.cells[index] = new Cell(col, row);
                 index++;
             }
         }
     }
 
-    public Cell getCell(int x, int y) {
-        return this.cells[y * this.width + x];
+    public Cell getCell(int col, int row) {
+        if (col >= 0 && col < this.width && row >= 0 && row < this.height)
+            return this.cells[row * this.width + col];
+
+        return null;
     }
 
     public int getWidth() {
@@ -57,15 +60,13 @@ public final class Board {
         return Math.sqrt(dx * dx + dy * dy);
     }
 
-    private static final double MaxNodeWeight = 50.0;
-
     private static double calculateEdgeWeight(Path<Cell> originPath, Cell destination) {
         final Cell origin = originPath.getHead();
         double distance = calculateDistance(origin, destination);
 
         // punish diagonals
         if (destination.getX() != origin.getX() && destination.getY() != origin.getY()) {
-            distance += 0;// 1;
+            distance += 0.7;
         }
 
         // punish changes of direction
@@ -77,7 +78,7 @@ public final class Board {
             final double dy2 = origin.getY() - destination.getY();
 
             if (dx1 != dx2 || dy1 != dy2) {
-                distance += 0;// 3;
+                distance += 0.2;
             }
         }
 
