@@ -1,10 +1,5 @@
 package net.smackem.mavenfx.gui.presentation;
 
-import java.awt.geom.Point2D;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
@@ -18,6 +13,10 @@ import net.smackem.mavenfx.gui.util.Views;
 import net.smackem.mavenfx.model.Board;
 import net.smackem.mavenfx.model.Cell;
 import net.smackem.mavenfx.model.Path;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.awt.geom.Point2D;
 
 /**
  * @author pbo
@@ -40,8 +39,8 @@ public class BoardView extends ScrollPane {
         Views.loadFxml(this, "fxml/BoardView.fxml");
 
         boardProperty.addListener((prop, oldVal, newVal) -> {
-          resizeCanvas();
-          redrawBoard();
+            resizeCanvas();
+            redrawBoard();
         });
 
         canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, this::onMousePressed);

@@ -1,6 +1,16 @@
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import net.smackem.mavenfx.gui.presentation.BoardView?>
 <fx:root type="BorderPane" xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="Import" />
+            </Menu>
+        </MenuBar>
+    </top>
     <center>
         <BoardView fx:id="boardControl" prefWidth="400" prefHeight="400" maxWidth="Infinity" maxHeight="Infinity" />
     </center>

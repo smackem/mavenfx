@@ -1,5 +1,6 @@
 package net.smackem.mavenfx.gui.presentation;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -24,5 +25,11 @@ public class MainView extends BorderPane {
 
         boardControl.boardProperty().set(new Board(100, 100));
         setBackground(new Background(new BackgroundFill(Color.AQUA, null, null)));
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    @FXML
+    private void onImportAction(Event event) {
     }
 }
