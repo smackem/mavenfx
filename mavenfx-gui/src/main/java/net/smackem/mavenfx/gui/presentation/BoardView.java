@@ -159,12 +159,12 @@ public class BoardView extends ScrollPane {
         return null;
     }
 
-    private abstract class DragState {
-        abstract void drag(double x, double y);
-        abstract void finish(double x, double y);
+    private interface DragState {
+        void drag(double x, double y);
+        void finish(double x, double y);
     }
 
-    private class DrawingDragState extends DragState {
+    private class DrawingDragState implements DragState {
         final int weightToSet;
 
         DrawingDragState(double x, double y) {
@@ -182,7 +182,7 @@ public class BoardView extends ScrollPane {
         }
 
         @Override
-        void drag(double x, double y) {
+        public void drag(double x, double y) {
             final Cell cell = getCellAt(x, y);
 
             if (cell != null) {
@@ -193,10 +193,10 @@ public class BoardView extends ScrollPane {
         }
 
         @Override
-        void finish(double x, double y) { }
+        public void finish(double x, double y) { }
     }
 
-    private class RoutingDragState extends DragState {
+    private class RoutingDragState implements DragState {
         final Cell originCell;
 
         RoutingDragState(double x, double y) {
@@ -212,7 +212,7 @@ public class BoardView extends ScrollPane {
         }
 
         @Override
-        void drag(double x, double y) {
+        public void drag(double x, double y) {
             if (this.originCell != null) {
                 final Point2D.Double point = normalizePosition(x, y);
                 dragLine.setEndX(point.getX());
@@ -221,7 +221,7 @@ public class BoardView extends ScrollPane {
         }
 
         @Override
-        void finish(double x, double y) {
+        public void finish(double x, double y) {
             if (this.originCell != null) {
                 final Cell destCell = getCellAt(x, y);
 
@@ -235,8 +235,8 @@ public class BoardView extends ScrollPane {
 
         Point2D.Double normalizePosition(double x, double y) {
             return new Point2D.Double(
-                    (int)(x - x % CELL_LENGTH + CELL_LENGTH / 2),
-                    (int)(y - y % CELL_LENGTH  + CELL_LENGTH / 2));
+                    x - x % CELL_LENGTH + CELL_LENGTH / 2.0 + 0.5,
+                    y - y % CELL_LENGTH  + CELL_LENGTH / 2.0 + 0.5);
         }
     }
 }
