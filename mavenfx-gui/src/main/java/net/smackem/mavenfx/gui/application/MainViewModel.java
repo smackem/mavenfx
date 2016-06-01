@@ -1,9 +1,5 @@
 package net.smackem.mavenfx.gui.application;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.scene.image.Image;
@@ -12,6 +8,10 @@ import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritablePixelFormat;
 import javafx.scene.paint.Color;
 import net.smackem.mavenfx.model.Board;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainViewModel {
     private final ReadOnlyObjectWrapper<Board> board = new ReadOnlyObjectWrapper<>(null);
@@ -25,7 +25,7 @@ public class MainViewModel {
     }
 
     public void loadBoardFromImage(String imagePath) throws IOException {
-        final Image image = loadImage(imagePath);
+        final Image image = scaleImage(loadImage(imagePath));
         final int width = (int) image.getWidth();
         final int height = (int) image.getHeight();
         final PixelReader reader = image.getPixelReader();

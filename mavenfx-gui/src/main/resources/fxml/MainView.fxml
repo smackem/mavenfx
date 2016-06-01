@@ -7,7 +7,8 @@
     <top>
         <MenuBar>
             <Menu text="File">
-                <MenuItem text="Import" onAction="#onOpenAction" />
+                <MenuItem text="Import from File" onAction="#onOpenAction" />
+                <MenuItem text="New Board" onAction="#onCreateAction" />
             </Menu>
         </MenuBar>
     </top>
