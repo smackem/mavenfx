@@ -3,7 +3,7 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.shape.Line?>
 <fx:root type="ScrollPane" xmlns:fx="http://javafx.com/fxml"
-         vbarPolicy="ALWAYS" hbarPolicy="ALWAYS">
+         vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED">
     <Group>
         <Canvas fx:id="canvas" />
         <Line fx:id="dragLine" visible="false" stroke="GREEN" strokeWidth="4" strokeLineCap="ROUND" opacity="0.3" />

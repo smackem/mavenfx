@@ -3,6 +3,7 @@ package net.smackem.mavenfx.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.function.Function;
 
 /**
  * @author pbo
@@ -51,7 +52,37 @@ public final class Board {
                 this::collectNeighbours);
     }
 
+    public static Board fromBuffer(int[] buffer, int width, int height, Function<Integer, Integer> weightCalculator) {
+        Objects.requireNonNull(buffer);
+        Objects.requireNonNull(weightCalculator);
+        if (width <= 0)
+            throw new IllegalArgumentException("Invalid width");
+        if (height <= 0)
+            throw new IllegalArgumentException("Invalid height");
+        if (buffer.length != width * height)
+            throw new IllegalArgumentException("Invalid buffer size");
+
+        final Cell[] cells = new Cell[width * height];
+
+        int index = 0;
+        for (int row = 0; row < height; row++) {
+            for (int col = 0; col < width; col++) {
+                cells[index] = new Cell(col, row);
+                cells[index].setWeight(weightCalculator.apply(buffer[index]));
+                index++;
+            }
+        }
+
+        return new Board(width, height, cells);
+    }
+
     /////////////////////////////////////////////////////////////////
+
+    private Board(int width, int height, Cell[] cells) {
+        this.width = width;
+        this.height = height;
+        this.cells = cells;
+    }
 
     private static double calculateDistance(Cell node1, Cell node2) {
         final double dx = (double)(node1.getX() - node2.getX());
