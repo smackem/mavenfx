@@ -12,7 +12,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        final MainView root = new MainView();
+        final MainView root = new MainView(stage);
         stage.setScene(new Scene(root, 400, 300));
         stage.show();
     }

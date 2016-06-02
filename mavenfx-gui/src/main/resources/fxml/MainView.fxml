@@ -7,11 +7,9 @@
     <top>
         <MenuBar>
             <Menu text="File">
-                <MenuItem text="Import" onAction="#onOpenAction" />
+                <MenuItem text="Import from File" onAction="#onOpenAction" />
+                <MenuItem text="New Board" onAction="#onCreateAction" />
             </Menu>
         </MenuBar>
     </top>
-    <center>
-        <BoardView fx:id="boardView" prefWidth="400" prefHeight="400" maxWidth="Infinity" maxHeight="Infinity" />
-    </center>
 </fx:root>

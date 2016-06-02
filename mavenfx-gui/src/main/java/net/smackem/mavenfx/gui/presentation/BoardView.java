@@ -1,19 +1,17 @@
 package net.smackem.mavenfx.gui.presentation;
 
-import java.awt.geom.Point2D;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import net.smackem.mavenfx.gui.application.BoardViewModel;
 import net.smackem.mavenfx.gui.util.Views;
 import net.smackem.mavenfx.model.Board;
 import net.smackem.mavenfx.model.Cell;
@@ -26,9 +24,8 @@ public class BoardView extends ScrollPane {
 
     private static final Logger log = LoggerFactory.getLogger(BoardView.class);
     private static final int CELL_LENGTH = 6;
-    private final ObjectProperty<Board> boardProperty = new SimpleObjectProperty<>(null);
+    private final BoardViewModel model;
     private DragState dragState;
-    private Path<Cell> path;
 
     @FXML
     private Canvas canvas;
@@ -36,11 +33,15 @@ public class BoardView extends ScrollPane {
     @FXML
     private Line dragLine;
 
-    public BoardView() {
+    public BoardView(BoardViewModel model) {
         Views.loadFxml(this, "fxml/BoardView.fxml");
 
-        boardProperty.addListener((prop, oldVal, newVal) -> {
+        this.model = model;
+        this.model.boardProperty().addListener((prop, oldVal, newVal) -> {
             resizeCanvas();
+            redrawBoard();
+        });
+        this.model.pathProperty().addListener((prop, oldVal, newVal) -> {
             redrawBoard();
         });
 
@@ -49,11 +50,15 @@ public class BoardView extends ScrollPane {
         canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, this::onMouseReleased);
     }
 
-    public ObjectProperty<Board> boardProperty() {
-        return this.boardProperty;
+    /////////////////////////////////////////////////////////////////
+
+    private Board getBoard() {
+        return this.model.boardProperty().get();
     }
 
-    /////////////////////////////////////////////////////////////////
+    private Path<Cell> getPath() {
+        return this.model.pathProperty().get();
+    }
 
     private void onMousePressed(MouseEvent event) {
         this.dragState = event.isShiftDown()
@@ -79,7 +84,7 @@ public class BoardView extends ScrollPane {
     private void resizeCanvas() {
         final int boardWidth;
         final int boardHeight;
-        final Board board = this.boardProperty.get();
+        final Board board = getBoard();
 
         if (board == null) {
             boardWidth = 0;
@@ -97,7 +102,7 @@ public class BoardView extends ScrollPane {
     }
 
     private void redrawBoard() {
-        final Board board = this.boardProperty.get();
+        final Board board = getBoard();
         final GraphicsContext dc = this.canvas.getGraphicsContext2D();
 
         dc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -112,23 +117,24 @@ public class BoardView extends ScrollPane {
         final double canvasHeight = boardHeight * CELL_LENGTH;
 
         // draw cell weights
-        dc.setFill(Color.BLACK);
-
         for (int row = 0; row < boardHeight; row++) {
             for (int col = 0; col < boardWidth; col++) {
                 final Cell cell = board.getCell(col, row);
 
                 if (cell != null && cell.getWeight() > 0) {
+                    dc.setFill(getCellColor(cell));
                     dc.fillRect(col * CELL_LENGTH, row * CELL_LENGTH, CELL_LENGTH, CELL_LENGTH);
                 }
             }
         }
 
         // draw path
-        dc.setFill(Color.rgb(0, 128, 0, 0.7));
+        dc.setFill(Color.rgb(0, 128, 0, 0.7)); // transparent green
 
-        if (this.path != null) {
-            for (final Cell cell : this.path.getNodes()) {
+        final Path<Cell> path = getPath();
+
+        if (path != null) {
+            for (final Cell cell : path.getNodes()) {
                 dc.fillRect(cell.getX() * CELL_LENGTH, cell.getY() * CELL_LENGTH, CELL_LENGTH, CELL_LENGTH);
             }
         }
@@ -148,8 +154,14 @@ public class BoardView extends ScrollPane {
         }
     }
 
+    private static Color getCellColor(Cell cell) {
+        final double ratio = (double) cell.getWeight() / Integer.MAX_VALUE;
+        final int channelValue = 255 - (int) (ratio * 255);
+        return Color.rgb(channelValue, channelValue, channelValue);
+    }
+
     private Cell getCellAt(double x, double y) {
-        final Board board = boardProperty.get();
+        final Board board = getBoard();
 
         if (board != null) {
             final int col = (int)(x / CELL_LENGTH);
@@ -204,7 +216,7 @@ public class BoardView extends ScrollPane {
             this.originCell = getCellAt(x, y);
 
             if (this.originCell != null) {
-                final Point2D.Double point = normalizePosition(x, y);
+                final Point2D point = normalizePosition(x, y);
                 dragLine.setStartX(point.getX());
                 dragLine.setStartY(point.getY());
                 dragLine.setVisible(true);
@@ -215,7 +227,7 @@ public class BoardView extends ScrollPane {
         @Override
         public void drag(double x, double y) {
             if (this.originCell != null) {
-                final Point2D.Double point = normalizePosition(x, y);
+                final Point2D point = normalizePosition(x, y);
                 dragLine.setEndX(point.getX());
                 dragLine.setEndY(point.getY());
             }
@@ -227,15 +239,14 @@ public class BoardView extends ScrollPane {
                 final Cell destCell = getCellAt(x, y);
 
                 if (destCell != null) {
-                    path = boardProperty.get().findPath(originCell, destCell);
-                    redrawBoard();
+                    model.findPath(originCell, destCell);
                 }
             }
             dragLine.setVisible(false);
         }
 
-        Point2D.Double normalizePosition(double x, double y) {
-            return new Point2D.Double(
+        Point2D normalizePosition(double x, double y) {
+            return new Point2D(
                     x - x % CELL_LENGTH + CELL_LENGTH / 2.0 + 0.5,
                     y - y % CELL_LENGTH  + CELL_LENGTH / 2.0 + 0.5);
         }
