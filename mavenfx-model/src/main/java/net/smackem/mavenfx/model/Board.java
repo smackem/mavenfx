@@ -3,7 +3,6 @@ package net.smackem.mavenfx.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
-import java.util.function.Function;
 
 /**
  * @author pbo
@@ -52,7 +51,7 @@ public final class Board {
                 this::collectNeighbours);
     }
 
-    public static Board fromBuffer(int[] buffer, int width, int height, Function<Integer, Integer> weightCalculator) {
+    public static Board fromBuffer(int[] buffer, int width, int height, Functions.IntegerMapper weightCalculator) {
         Objects.requireNonNull(buffer);
         Objects.requireNonNull(weightCalculator);
         if (width <= 0)

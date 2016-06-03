@@ -8,6 +8,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -33,6 +34,9 @@ public class BoardView extends ScrollPane {
     @FXML
     private Line dragLine;
 
+    @FXML
+    private ImageView imageView;
+
     public BoardView(BoardViewModel model) {
         Views.loadFxml(this, "fxml/BoardView.fxml");
 
@@ -45,9 +49,13 @@ public class BoardView extends ScrollPane {
             redrawBoard();
         });
 
-        canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, this::onMousePressed);
-        canvas.addEventHandler(MouseEvent.MOUSE_DRAGGED, this::onMouseDragged);
-        canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, this::onMouseReleased);
+        this.imageView.imageProperty().bind(this.model.getImage());
+        this.imageView.fitWidthProperty().bind(this.canvas.widthProperty());
+        this.imageView.fitHeightProperty().bind(this.canvas.heightProperty());
+
+        this.canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, this::onMousePressed);
+        this.canvas.addEventHandler(MouseEvent.MOUSE_DRAGGED, this::onMouseDragged);
+        this.canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, this::onMouseReleased);
     }
 
     /////////////////////////////////////////////////////////////////
@@ -129,7 +137,7 @@ public class BoardView extends ScrollPane {
         }
 
         // draw path
-        dc.setFill(Color.rgb(0, 128, 0, 0.7)); // transparent green
+        dc.setFill(Color.GREEN);
 
         final Path<Cell> path = getPath();
 

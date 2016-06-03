@@ -3,13 +3,20 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import net.smackem.mavenfx.gui.presentation.BoardView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
 <fx:root type="BorderPane" xmlns:fx="http://javafx.com/fxml">
     <top>
         <MenuBar>
             <Menu text="File">
-                <MenuItem text="Import from File" onAction="#onOpenAction" />
+                <MenuItem text="Import from File..." onAction="#onOpenAction" />
                 <MenuItem text="New Board" onAction="#onCreateAction" />
             </Menu>
         </MenuBar>
     </top>
+    <center>
+        <StackPane  fx:id="centerPane" />
+    </center>
 </fx:root>

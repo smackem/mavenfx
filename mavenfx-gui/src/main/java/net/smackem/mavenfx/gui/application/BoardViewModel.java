@@ -1,8 +1,6 @@
 package net.smackem.mavenfx.gui.application;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -18,6 +16,7 @@ import net.smackem.mavenfx.model.Path;
 public class BoardViewModel {
     private final ReadOnlyObjectWrapper<Board> board = new ReadOnlyObjectWrapper<>();
     private final ReadOnlyObjectWrapper<Path<Cell>> path = new ReadOnlyObjectWrapper<>();
+    private final ReadOnlyObjectWrapper<Image> image = new ReadOnlyObjectWrapper<>();
 
     public final ReadOnlyObjectProperty<Board> boardProperty() {
         return this.board.getReadOnlyProperty();
@@ -27,19 +26,24 @@ public class BoardViewModel {
         return this.path.getReadOnlyProperty();
     }
 
+    public ReadOnlyObjectProperty<Image> getImage() {
+        return this.image;
+    }
+
     public void createNewBoard(int width, int height) {
         this.board.set(new Board(width, height));
         this.path.set(null);
     }
 
-    public void loadBoardFromImage(String imagePath) throws IOException {
-        final Image image = scaleImage(loadImage(imagePath));
-        final int width = (int) image.getWidth();
-        final int height = (int) image.getHeight();
-        final PixelReader reader = image.getPixelReader();
+    public void importFromImage(Image image) throws IOException {
+        final Image scaledImage = scaleImage(image);
+        final int width = (int) scaledImage.getWidth();
+        final int height = (int) scaledImage.getHeight();
+        final PixelReader reader = scaledImage.getPixelReader();
         final int[] buffer = new int[width * height];
 
         reader.getPixels(0, 0, width, height, WritablePixelFormat.getIntArgbInstance(), buffer, 0, width);
+
         final Board board = Board.fromBuffer(buffer, width, height, pixel -> {
             final Color color = Color.rgb((pixel >> 16) & 0xff, (pixel >> 8) & 0xff, (pixel >> 0) & 0xff);
             return Integer.MAX_VALUE - (int)(color.getBrightness() * Integer.MAX_VALUE);
@@ -47,6 +51,7 @@ public class BoardViewModel {
 
         this.board.set(board);
         this.path.set(null);
+        this.image.set(image);
     }
 
     public void findPath(Cell origin, Cell destination) {
@@ -57,12 +62,6 @@ public class BoardViewModel {
     }
 
     /////////////////////////////////////////////////////////////////
-
-    private static Image loadImage(String imagePath) throws IOException {
-        try (final InputStream is = new FileInputStream(imagePath)) {
-            return new Image(is);
-        }
-    }
 
     private static Image scaleImage(Image image) {
         final ImageView imageView = new ImageView(image);

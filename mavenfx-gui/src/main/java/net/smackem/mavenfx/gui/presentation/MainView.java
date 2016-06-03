@@ -8,9 +8,13 @@ import org.slf4j.LoggerFactory;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -26,6 +30,9 @@ public class MainView extends BorderPane {
     private final MainViewModel model;
     private final Stage mainStage;
 
+    @FXML
+    private Pane centerPane;
+
     /**
      * Initializes a new instance of {@link MainView}.
      */
@@ -34,7 +41,10 @@ public class MainView extends BorderPane {
 
         this.mainStage = mainStage;
         this.model = new MainViewModel();
-        this.setCenter(new BoardView(this.model.getBoardViewModel()));
+
+        final BoardView boardView = new BoardView(this.model.getBoardViewModel());
+        this.centerPane.getChildren().add(boardView);
+
         setBackground(new Background(new BackgroundFill(Color.AQUA, null, null)));
     }
 
@@ -46,10 +56,13 @@ public class MainView extends BorderPane {
         fileChooser.setTitle("Open Image File");
         final File file = fileChooser.showOpenDialog(this.mainStage);
 
-        try {
-            this.model.getBoardViewModel().loadBoardFromImage(file.getAbsolutePath());
-        } catch (IOException e) {
-            log.error("Error opening " + file.getPath(), e);
+        if (file != null) {
+            try {
+                this.model.loadBoardFromImage(file.getAbsolutePath());
+            } catch (IOException e) {
+                log.error("Error opening " + file.getPath(), e);
+                new Alert(AlertType.ERROR, e.getMessage(), ButtonType.CLOSE).showAndWait();
+            }
         }
     }
 

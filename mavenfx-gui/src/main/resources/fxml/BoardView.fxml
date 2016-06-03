@@ -2,10 +2,12 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.image.ImageView?>
 <fx:root type="ScrollPane" xmlns:fx="http://javafx.com/fxml"
          vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED">
     <Group>
         <Canvas fx:id="canvas" />
-        <Line fx:id="dragLine" visible="false" stroke="GREEN" strokeWidth="4" strokeLineCap="ROUND" opacity="0.3" />
+        <ImageView  fx:id="imageView" opacity="0.3" mouseTransparent="true" preserveRatio="false" smooth="true" />
+        <Line fx:id="dragLine" visible="false" stroke="GREEN" strokeWidth="4" strokeLineCap="ROUND" opacity="0.7" />
     </Group>
 </fx:root>
