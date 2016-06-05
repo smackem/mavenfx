@@ -1,13 +1,16 @@
 package net.smackem.mavenfx.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Objects;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author pbo
  */
 public final class Board {
+    private static final Logger log = LoggerFactory.getLogger(Board.class);
     private final Cell[] cells;
     private final int width;
     private final int height;
@@ -49,6 +52,36 @@ public final class Board {
                 Board::calculateEdgeWeight,
                 cell -> calculateDistance(cell, destination),
                 this::collectNeighbours);
+    }
+
+    public Collection<Path<Cell>> findPaths(Cell origin, Cell destination, int maxPathCount) {
+        Objects.requireNonNull(origin);
+        Objects.requireNonNull(destination);
+
+        final Set<Cell> usedCells = new HashSet<>();
+        final Collection<Path<Cell>> result = new LinkedList<>();
+
+        while (maxPathCount-- > 0) {
+            final Path<Cell> path = Path.findPath(origin, destination,
+                    (originPath, destCell) -> {
+                        double weight = calculateEdgeWeight(originPath, destCell);
+                        if (destCell != destination && usedCells.contains(destCell))
+                            weight += 100_000;
+                        return weight;
+                    },
+                    cell -> calculateDistance(cell, destination),
+                    this::collectNeighbours);
+
+            if (path == null) {
+                log.info("no more paths found. count={}", result.size());
+                break;
+            }
+
+            usedCells.addAll(path.getNodes());
+            result.add(path);
+        }
+
+        return result;
     }
 
     public static Board fromBuffer(int[] buffer, int width, int height, Functions.IntegerMapper weightCalculator) {
@@ -115,7 +148,7 @@ public final class Board {
         return distance + destination.getWeight();
     }
 
-    Collection<Cell> collectNeighbours(Cell cell) {
+    private Collection<Cell> collectNeighbours(Cell cell) {
         final int firstX = Math.max(cell.getX() - 1, 0);
         final int lastX = Math.min(cell.getX() + 1, this.width - 1);
 

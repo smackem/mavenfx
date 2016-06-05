@@ -2,8 +2,11 @@ package net.smackem.mavenfx.gui.application;
 
 import java.io.IOException;
 
+import com.sun.javafx.collections.ImmutableObservableList;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
@@ -13,26 +16,26 @@ import net.smackem.mavenfx.model.Board;
 import net.smackem.mavenfx.model.Cell;
 import net.smackem.mavenfx.model.Path;
 
-public class BoardViewModel {
+public final class BoardViewModel {
     private final ReadOnlyObjectWrapper<Board> board = new ReadOnlyObjectWrapper<>();
-    private final ReadOnlyObjectWrapper<Path<Cell>> path = new ReadOnlyObjectWrapper<>();
     private final ReadOnlyObjectWrapper<Image> image = new ReadOnlyObjectWrapper<>();
+    private final ObservableList<Path<Cell>> paths = FXCollections.observableArrayList();
 
-    public final ReadOnlyObjectProperty<Board> boardProperty() {
+    public ReadOnlyObjectProperty<Board> boardProperty() {
         return this.board.getReadOnlyProperty();
-    }
-
-    public final ReadOnlyObjectProperty<Path<Cell>> pathProperty() {
-        return this.path.getReadOnlyProperty();
     }
 
     public ReadOnlyObjectProperty<Image> getImage() {
         return this.image;
     }
 
+    public ObservableList<Path<Cell>> getPaths() {
+        return FXCollections.unmodifiableObservableList(this.paths);
+    }
+
     public void createNewBoard(int width, int height) {
         this.board.set(new Board(width, height));
-        this.path.set(null);
+        this.paths.clear();
     }
 
     public void importFromImage(Image image) throws IOException {
@@ -50,15 +53,17 @@ public class BoardViewModel {
         });
 
         this.board.set(board);
-        this.path.set(null);
+        this.paths.clear();
         this.image.set(image);
     }
 
     public void findPath(Cell origin, Cell destination) {
         final Board board = this.board.get();
 
-        if (board != null)
-            this.path.set(board.findPath(origin, destination));
+        if (board != null) {
+            this.paths.clear();
+            this.paths.addAll(board.findPaths(origin, destination, 3));
+        }
     }
 
     /////////////////////////////////////////////////////////////////

@@ -1,5 +1,7 @@
 package net.smackem.mavenfx.gui.presentation;
 
+import javafx.beans.InvalidationListener;
+import javafx.collections.ListChangeListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +47,7 @@ public class BoardView extends ScrollPane {
             resizeCanvas();
             redrawBoard();
         });
-        this.model.pathProperty().addListener((prop, oldVal, newVal) -> {
+        this.model.getPaths().addListener((ListChangeListener<Path<Cell>>) c -> {
             redrawBoard();
         });
 
@@ -62,10 +64,6 @@ public class BoardView extends ScrollPane {
 
     private Board getBoard() {
         return this.model.boardProperty().get();
-    }
-
-    private Path<Cell> getPath() {
-        return this.model.pathProperty().get();
     }
 
     private void onMousePressed(MouseEvent event) {
@@ -139,9 +137,7 @@ public class BoardView extends ScrollPane {
         // draw path
         dc.setFill(Color.GREEN);
 
-        final Path<Cell> path = getPath();
-
-        if (path != null) {
+        for (final Path<Cell> path : this.model.getPaths()) {
             for (final Cell cell : path.getNodes()) {
                 dc.fillRect(cell.getX() * CELL_LENGTH, cell.getY() * CELL_LENGTH, CELL_LENGTH, CELL_LENGTH);
             }

@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 import javafx.scene.image.Image;
 
-public class MainViewModel {
+public final class MainViewModel {
     private final BoardViewModel boardViewModel = new BoardViewModel();
 
     public BoardViewModel getBoardViewModel() {
