@@ -3,8 +3,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Slider?>
 <fx:root type="BorderPane" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: aqua">
     <top>
         <MenuBar>
@@ -16,8 +19,23 @@
     </top>
     <center>
         <SplitPane dividerPositions="1.0">
-            <StackPane fx:id="centerPane" />
-            <StackPane style="-fx-background-color: aqua" minWidth="100" />
+            <StackPane fx:id="boardPane" />
+            <GridPane hgap="4" vgap="4">
+                <Label text="Path Count:"
+                       GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="pathCountTextField"
+                           GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label text="Diagonals:"
+                       GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Slider fx:id="diagonalsValueSlider" min="0" max="100"
+                        GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Turns:"
+                       GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Slider fx:id="turnsValueSlider" min="0" max="100"
+                        GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            </GridPane>
         </SplitPane>
     </center>
 </fx:root>

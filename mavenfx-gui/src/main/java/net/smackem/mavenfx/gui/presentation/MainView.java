@@ -28,7 +28,7 @@ public class MainView extends BorderPane {
     private final Stage mainStage;
 
     @FXML
-    private Pane centerPane;
+    private Pane boardPane;
 
     /**
      * Initializes a new instance of {@link MainView}.
@@ -40,7 +40,7 @@ public class MainView extends BorderPane {
         this.model = new MainViewModel();
 
         final BoardView boardView = new BoardView(this.model.getBoardViewModel());
-        this.centerPane.getChildren().add(boardView);
+        this.boardPane.getChildren().add(boardView);
     }
 
     /////////////////////////////////////////////////////////////////
