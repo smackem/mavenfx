@@ -1,10 +1,14 @@
 package net.smackem.mavenfx.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Objects;
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author pbo
@@ -66,7 +70,7 @@ public final class Board {
                     (originPath, destCell) -> {
                         double weight = calculateEdgeWeight(originPath, destCell);
                         if (destCell != destination && usedCells.contains(destCell))
-                            weight += 100_000;
+                            weight = Integer.MAX_VALUE;
                         return weight;
                     },
                     cell -> calculateDistance(cell, destination),

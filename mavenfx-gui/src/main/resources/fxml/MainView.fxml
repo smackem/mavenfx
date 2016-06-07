@@ -3,7 +3,9 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
-<fx:root type="BorderPane" xmlns:fx="http://javafx.com/fxml">
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.control.SplitPane?>
+<fx:root type="BorderPane" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: aqua">
     <top>
         <MenuBar>
             <Menu text="File">
@@ -13,6 +15,9 @@
         </MenuBar>
     </top>
     <center>
-        <StackPane  fx:id="centerPane" />
+        <SplitPane dividerPositions="1.0">
+            <StackPane fx:id="centerPane" />
+            <StackPane style="-fx-background-color: aqua" minWidth="100" />
+        </SplitPane>
     </center>
 </fx:root>

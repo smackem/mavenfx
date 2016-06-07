@@ -2,7 +2,6 @@ package net.smackem.mavenfx.gui.application;
 
 import java.io.IOException;
 
-import com.sun.javafx.collections.ImmutableObservableList;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -20,6 +19,7 @@ public final class BoardViewModel {
     private final ReadOnlyObjectWrapper<Board> board = new ReadOnlyObjectWrapper<>();
     private final ReadOnlyObjectWrapper<Image> image = new ReadOnlyObjectWrapper<>();
     private final ObservableList<Path<Cell>> paths = FXCollections.observableArrayList();
+    private final ObservableList<Path<Cell>> immutablePaths = FXCollections.unmodifiableObservableList(this.paths);
 
     public ReadOnlyObjectProperty<Board> boardProperty() {
         return this.board.getReadOnlyProperty();
@@ -30,7 +30,7 @@ public final class BoardViewModel {
     }
 
     public ObservableList<Path<Cell>> getPaths() {
-        return FXCollections.unmodifiableObservableList(this.paths);
+        return this.immutablePaths;
     }
 
     public void createNewBoard(int width, int height) {

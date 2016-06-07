@@ -1,10 +1,11 @@
 package net.smackem.mavenfx.gui.presentation;
 
-import javafx.beans.InvalidationListener;
-import javafx.collections.ListChangeListener;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -47,7 +48,7 @@ public class BoardView extends ScrollPane {
             resizeCanvas();
             redrawBoard();
         });
-        this.model.getPaths().addListener((ListChangeListener<Path<Cell>>) c -> {
+        this.model.getPaths().addListener((ListChangeListener<Path<Cell>>) ignored -> {
             redrawBoard();
         });
 
@@ -134,13 +135,22 @@ public class BoardView extends ScrollPane {
             }
         }
 
-        // draw path
-        dc.setFill(Color.GREEN);
+        // draw path - best path last, in red
+        final Color bestPathColor = Color.RED;
+        final List<Path<Cell>> paths = this.model.getPaths();
+        final double saturation = bestPathColor.getSaturation();
+        final double brightness = bestPathColor.getBrightness();
+        double hue = (bestPathColor.getHue() + (paths.size() - 1) * 60.0) % 360.0;
 
-        for (final Path<Cell> path : this.model.getPaths()) {
+        for (int index = paths.size() - 1; index >= 0; index--) {
+            final Path<Cell> path = paths.get(index);
+            dc.setFill(Color.hsb(hue, saturation, brightness));
+
             for (final Cell cell : path.getNodes()) {
                 dc.fillRect(cell.getX() * CELL_LENGTH, cell.getY() * CELL_LENGTH, CELL_LENGTH, CELL_LENGTH);
             }
+
+            hue = (hue - 60.0) % 360.0;
         }
 
         // draw grid

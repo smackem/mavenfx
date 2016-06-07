@@ -11,11 +11,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.smackem.mavenfx.gui.application.MainViewModel;
@@ -44,8 +41,6 @@ public class MainView extends BorderPane {
 
         final BoardView boardView = new BoardView(this.model.getBoardViewModel());
         this.centerPane.getChildren().add(boardView);
-
-        setBackground(new Background(new BackgroundFill(Color.AQUA, null, null)));
     }
 
     /////////////////////////////////////////////////////////////////
