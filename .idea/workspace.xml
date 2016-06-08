@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f27c381d-dcf7-4e4d-80a0-0b8e0e0fad32" name="Default" comment="multiple paths">
+    <list default="true" id="f27c381d-dcf7-4e4d-80a0-0b8e0e0fad32" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java" afterPath="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/BoardView.java" afterPath="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/BoardView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java" afterPath="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml" afterPath="$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-gui/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/mavenfx-gui/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-model/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/mavenfx-model/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="mavenfx-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,20 +44,20 @@
         <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/BoardView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="255" column="29" selection-start-line="255" selection-start-column="29" selection-end-line="255" selection-end-column="29" />
+              <caret line="257" column="13" selection-start-line="257" selection-start-column="13" selection-end-line="257" selection-end-column="13" />
               <folding>
-                <element signature="e#2086#2087#0" expanded="true" />
-                <element signature="e#2141#2142#0" expanded="true" />
+                <element signature="e#2091#2092#0" expanded="true" />
+                <element signature="e#2146#2147#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.4634483">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,16 +88,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainView.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainView.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46996996">
-              <caret line="30" column="69" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
+            <state vertical-scroll-proportion="-3.20339">
+              <caret line="17" column="46" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="46" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BoardViewModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding>
+                <element signature="e#1397#1398#0" expanded="true" />
+                <element signature="e#1452#1453#0" expanded="true" />
+                <element signature="e#1512#1513#0" expanded="true" />
+                <element signature="e#1567#1568#0" expanded="true" />
+                <element signature="e#1619#1620#0" expanded="true" />
+                <element signature="e#1661#1662#0" expanded="true" />
+                <element signature="e#1725#1726#0" expanded="true" />
+                <element signature="e#1785#1786#0" expanded="true" />
+                <element signature="e#1854#1855#0" expanded="true" />
+                <element signature="e#1919#1920#0" expanded="true" />
+                <element signature="e#1969#1970#0" expanded="true" />
+                <element signature="e#2006#2007#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -107,34 +130,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1086#1087#0" expanded="true" />
-                <element signature="e#1119#1120#0" expanded="true" />
-                <element signature="e#1149#1150#0" expanded="true" />
-                <element signature="e#1183#1184#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoardViewModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-              <folding>
-                <element signature="e#1280#1281#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -154,11 +149,11 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/MainViewModel.java" />
-        <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java" />
-        <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/BoardView.java" />
         <option value="$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Board.java" />
-        <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java" />
         <option value="$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml" />
+        <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/BoardView.java" />
+        <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java" />
+        <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java" />
       </list>
     </option>
   </component>
@@ -402,11 +397,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/BoardView.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Board.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/mavenfx-model/.classpath</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -817,7 +809,13 @@
       <option name="project" value="LOCAL" />
       <updated>1465157868632</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="more controls">
+      <created>1465329985540</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1465329985540</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -861,7 +859,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="multiple paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiple paths" />
+    <MESSAGE value="more controls" />
+    <option name="LAST_COMMIT_MESSAGE" value="more controls" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -898,6 +897,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/collections/FXCollections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.951724">
+          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/collections/ObservableList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7958621">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -911,6 +926,31 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7089655">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1086#1087#0" expanded="true" />
+            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#1149#1150#0" expanded="true" />
+            <element signature="e#1183#1184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/BoardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="257" column="13" selection-start-line="257" selection-start-column="13" selection-end-line="257" selection-end-column="13" />
+          <folding>
+            <element signature="e#2091#2092#0" expanded="true" />
+            <element signature="e#2146#2147#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -933,76 +973,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/collections/FXCollections.java">
+    <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.951724">
-          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+        <state vertical-scroll-proportion="-3.20339">
+          <caret line="17" column="46" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="46" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/collections/ObservableList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7958621">
-          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
-          <folding />
-        </state>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
-            <element signature="e#1280#1281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1119#1120#0" expanded="true" />
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1183#1184#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/BoardView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="255" column="29" selection-start-line="255" selection-start-column="29" selection-end-line="255" selection-end-column="29" />
-          <folding>
-            <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
+            <element signature="e#1452#1453#0" expanded="true" />
+            <element signature="e#1512#1513#0" expanded="true" />
+            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="e#1619#1620#0" expanded="true" />
+            <element signature="e#1661#1662#0" expanded="true" />
+            <element signature="e#1725#1726#0" expanded="true" />
+            <element signature="e#1785#1786#0" expanded="true" />
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1919#1920#0" expanded="true" />
+            <element signature="e#1969#1970#0" expanded="true" />
+            <element signature="e#2006#2007#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.4634483">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46996996">
-          <caret line="30" column="69" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
   </component>

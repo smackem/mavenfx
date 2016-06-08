@@ -52,7 +52,7 @@ public class BoardView extends ScrollPane {
             redrawBoard();
         });
 
-        this.imageView.imageProperty().bind(this.model.getImage());
+        this.imageView.imageProperty().bind(this.model.imageProperty());
         this.imageView.fitWidthProperty().bind(this.canvas.widthProperty());
         this.imageView.fitHeightProperty().bind(this.canvas.heightProperty());
 
@@ -253,7 +253,7 @@ public class BoardView extends ScrollPane {
                 final Cell destCell = getCellAt(x, y);
 
                 if (destCell != null) {
-                    model.findPath(originCell, destCell);
+                    model.setOriginAndDestination(originCell, destCell);
                 }
             }
             dragLine.setVisible(false);
