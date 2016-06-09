@@ -3,6 +3,7 @@ package net.smackem.mavenfx.gui.presentation;
 import java.io.File;
 import java.io.IOException;
 
+import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import net.smackem.mavenfx.gui.application.BoardViewModel;
 import org.slf4j.Logger;
@@ -35,6 +36,9 @@ public class MainView extends BorderPane {
     @FXML
     private Slider pathCountSlider;
 
+    @FXML
+    private ListView pathsListView;
+
     /**
      * Initializes a new instance of {@link MainView}.
      */
@@ -49,6 +53,7 @@ public class MainView extends BorderPane {
         this.boardPane.getChildren().add(boardView);
 
         this.pathCountSlider.valueProperty().bindBidirectional(boardViewModel.pathCountProperty());
+        this.pathsListView.itemsProperty().set(boardViewModel.getPaths());
     }
 
     /////////////////////////////////////////////////////////////////
