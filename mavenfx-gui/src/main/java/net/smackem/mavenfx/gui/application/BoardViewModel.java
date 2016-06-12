@@ -57,6 +57,7 @@ public final class BoardViewModel {
     public void createNewBoard(int width, int height) {
         this.board.set(new Board(width, height));
         this.paths.clear();
+        this.image.set(null);
     }
 
     public void importFromImage(Image image) throws IOException {
@@ -105,8 +106,7 @@ public final class BoardViewModel {
             final Collection<Path<Cell>> paths =
                     board.findPaths(origin, destination, this.pathCount.get());
 
-            this.paths.clear();
-            this.paths.addAll(paths);
+            this.paths.setAll(paths);
         }
     }
 }

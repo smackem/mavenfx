@@ -3,16 +3,16 @@ package net.smackem.mavenfx.gui.presentation;
 import java.io.File;
 import java.io.IOException;
 
+import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxListCell;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
@@ -55,7 +55,8 @@ public class MainView extends BorderPane {
         this.boardPane.getChildren().add(boardView);
 
         this.pathCountSlider.valueProperty().bindBidirectional(boardViewModel.pathCountProperty());
-        this.pathsListView.itemsProperty().set(boardViewModel.getPaths());
+        this.pathsListView.setCellFactory(listView -> new ColorRectCell());
+        this.pathsListView.itemsProperty().setValue(boardViewModel.getPaths());
     }
 
     /////////////////////////////////////////////////////////////////
@@ -79,5 +80,18 @@ public class MainView extends BorderPane {
     @FXML
     private void onCreateAction(ActionEvent event) {
         this.model.getBoardViewModel().createNewBoard(400, 400);
+    }
+
+    private static class ColorRectCell extends ListCell<Path<Cell>> {
+        @Override
+        public void updateItem(Path<Cell> item, boolean empty) {
+            super.updateItem(item, empty);
+            final Rectangle rect = new Rectangle(20, 20);
+            if (item != null) {
+                rect.setFill(Color.RED);
+                setGraphic(rect);
+                setText(Double.toString(item.getTotalCost()));
+            }
+        }
     }
 }
