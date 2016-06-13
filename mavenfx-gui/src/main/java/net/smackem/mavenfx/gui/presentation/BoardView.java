@@ -2,6 +2,7 @@ package net.smackem.mavenfx.gui.presentation;
 
 import java.util.List;
 
+import net.smackem.mavenfx.gui.application.PathViewModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +49,7 @@ public class BoardView extends ScrollPane {
             resizeCanvas();
             redrawBoard();
         });
-        this.model.getPaths().addListener((ListChangeListener<Path<Cell>>) ignored -> {
+        this.model.getPaths().addListener((ListChangeListener<PathViewModel>) ignored -> {
             redrawBoard();
         });
 
@@ -137,16 +138,16 @@ public class BoardView extends ScrollPane {
 
         // draw path - best path last, in red
         final Color bestPathColor = Color.RED;
-        final List<Path<Cell>> paths = this.model.getPaths();
+        final List<PathViewModel> paths = this.model.getPaths();
         final double saturation = bestPathColor.getSaturation();
         final double brightness = bestPathColor.getBrightness();
         double hue = (bestPathColor.getHue() + (paths.size() - 1) * 60.0) % 360.0;
 
         for (int index = paths.size() - 1; index >= 0; index--) {
-            final Path<Cell> path = paths.get(index);
+            final PathViewModel path = paths.get(index);
             dc.setFill(Color.hsb(hue, saturation, brightness));
 
-            for (final Cell cell : path.getNodes()) {
+            for (final Cell cell : path.getCells()) {
                 dc.fillRect(cell.getX() * CELL_LENGTH, cell.getY() * CELL_LENGTH, CELL_LENGTH, CELL_LENGTH);
             }
 

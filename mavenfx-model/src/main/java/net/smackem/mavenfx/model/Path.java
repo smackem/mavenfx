@@ -46,6 +46,10 @@ public final class Path<TNode> {
         return this.totalCost;
     }
 
+    /**
+     * @return an immutable collection containing the {@code TNode}s
+     *      that make up this path.
+     */
     public Collection<TNode> getNodes() {
         final Collection<TNode> collection = new LinkedList<>();
 

@@ -14,12 +14,13 @@ import net.smackem.mavenfx.model.Path;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public final class BoardViewModel {
     private final ReadOnlyObjectWrapper<Board> board = new ReadOnlyObjectWrapper<>();
     private final ReadOnlyObjectWrapper<Image> image = new ReadOnlyObjectWrapper<>();
-    private final ObservableList<Path<Cell>> paths = FXCollections.observableArrayList();
-    private final ObservableList<Path<Cell>> immutablePaths = FXCollections.unmodifiableObservableList(this.paths);
+    private final ObservableList<PathViewModel> paths = FXCollections.observableArrayList();
+    private final ObservableList<PathViewModel> immutablePaths = FXCollections.unmodifiableObservableList(this.paths);
     private final ReadOnlyObjectWrapper<Cell> originCell = new ReadOnlyObjectWrapper<>();
     private final ReadOnlyObjectWrapper<Cell> destinationCell = new ReadOnlyObjectWrapper<>();
     private final IntegerProperty pathCount = new SimpleIntegerProperty(3);
@@ -38,7 +39,7 @@ public final class BoardViewModel {
         return this.image.getReadOnlyProperty();
     }
 
-    public ObservableList<Path<Cell>> getPaths() {
+    public ObservableList<PathViewModel> getPaths() {
         return this.immutablePaths;
     }
 
@@ -103,10 +104,11 @@ public final class BoardViewModel {
         final Cell destination = this.destinationCell.get();
 
         if (board != null && origin != null && destination != null) {
-            final Collection<Path<Cell>> paths =
-                    board.findPaths(origin, destination, this.pathCount.get());
-
-            this.paths.setAll(paths);
+            this.paths.setAll(
+                board.findPaths(origin, destination, this.pathCount.get())
+                    .stream()
+                    .map(path -> new PathViewModel(path, null))
+                    .collect(Collectors.toList()));
         }
     }
 }

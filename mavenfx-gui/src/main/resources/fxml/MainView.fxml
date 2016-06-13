@@ -21,13 +21,13 @@
 
                 <Label text="Diagonals:"
                        GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                <Slider fx:id="diagonalsValueSlider" min="0" max="100"
-                        GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Spinner fx:id="diagonalsValueSlider" min="0" max="100"
+                         GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <Label text="Turns:"
                        GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <Slider fx:id="turnsValueSlider" min="0" max="100"
-                        GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Spinner fx:id="turnsValueSlider" min="0" max="100"
+                         GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <ListView fx:id="pathsListView"
                           GridPane.rowIndex="3" GridPane.columnSpan="2" />

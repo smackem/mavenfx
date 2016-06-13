@@ -1,27 +1,26 @@
 package net.smackem.mavenfx.gui.presentation;
 
-import java.io.File;
-import java.io.IOException;
-
-import javafx.scene.control.*;
-import javafx.scene.control.cell.ComboBoxListCell;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.smackem.mavenfx.gui.application.BoardViewModel;
 import net.smackem.mavenfx.gui.application.MainViewModel;
+import net.smackem.mavenfx.gui.application.PathViewModel;
 import net.smackem.mavenfx.gui.util.Views;
 import net.smackem.mavenfx.model.Cell;
 import net.smackem.mavenfx.model.Path;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author pbo
@@ -39,7 +38,7 @@ public class MainView extends BorderPane {
     private Slider pathCountSlider;
 
     @FXML
-    private ListView<Path<Cell>> pathsListView;
+    private ListView<PathViewModel> pathsListView;
 
     /**
      * Initializes a new instance of {@link MainView}.
@@ -82,16 +81,21 @@ public class MainView extends BorderPane {
         this.model.getBoardViewModel().createNewBoard(400, 400);
     }
 
-    private static class ColorRectCell extends ListCell<Path<Cell>> {
+    private static class ColorRectCell extends ListCell<PathViewModel> {
         @Override
-        public void updateItem(Path<Cell> item, boolean empty) {
+        public void updateItem(PathViewModel item, boolean empty) {
             super.updateItem(item, empty);
-            final Rectangle rect = new Rectangle(20, 20);
-            if (item != null) {
-                rect.setFill(Color.RED);
-                setGraphic(rect);
-                setText(Double.toString(item.getTotalCost()));
+
+            if (item == null || empty) {
+                setGraphic(null);
+                setText(null);
+                return;
             }
+
+            final Rectangle rect = new Rectangle(16, 16);
+            rect.setFill(Color.RED);
+            setGraphic(rect);
+            setText(Double.toString(item.getTotalCost()));
         }
     }
 }
