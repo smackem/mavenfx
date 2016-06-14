@@ -19,6 +19,7 @@ import net.smackem.mavenfx.model.Board;
 import net.smackem.mavenfx.model.Cell;
 
 public final class BoardViewModel {
+    public static final int BLACK_WEIGHT = 1000;
     private final ReadOnlyObjectWrapper<Board> board = new ReadOnlyObjectWrapper<>();
     private final ReadOnlyObjectWrapper<Image> image = new ReadOnlyObjectWrapper<>();
     private final ObservableList<PathViewModel> paths = FXCollections.observableArrayList();
@@ -76,7 +77,7 @@ public final class BoardViewModel {
 
         final Board board = Board.fromBuffer(buffer, width, height, pixel -> {
             final Color color = Color.rgb((pixel >> 16) & 0xff, (pixel >> 8) & 0xff, (pixel >> 0) & 0xff);
-            return Integer.MAX_VALUE - (int)(color.getBrightness() * Integer.MAX_VALUE);
+            return BLACK_WEIGHT - (int)(color.getBrightness() * BLACK_WEIGHT);
         });
 
         this.board.set(board);

@@ -163,7 +163,7 @@ public class BoardView extends ScrollPane {
     }
 
     private static Color getCellColor(Cell cell) {
-        final double ratio = (double) cell.getWeight() / Integer.MAX_VALUE;
+        final double ratio = (double) cell.getWeight() / BoardViewModel.BLACK_WEIGHT;
         final int channelValue = 255 - (int) (ratio * 255);
         return Color.rgb(channelValue, channelValue, channelValue);
     }
@@ -194,7 +194,7 @@ public class BoardView extends ScrollPane {
             final Cell cell = getCellAt(x, y);
 
             if (cell != null) {
-                weightToSet = cell.getWeight() == 0 ? Integer.MAX_VALUE : 0;
+                weightToSet = cell.getWeight() == 0 ? BoardViewModel.BLACK_WEIGHT : 0;
                 log.debug("Pressed {}/{}: {}", cell.getX(), cell.getY(), cell.getWeight());
             }
 
