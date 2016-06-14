@@ -15,7 +15,7 @@
             <GridPane hgap="4" vgap="4" style="-fx-padding: 4">
                 <Label text="Path Count:"
                        GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                <Slider fx:id="pathCountSlider" min="1" max="10" showTickLabels="true" showTickMarks="true" snapToTicks="true"
+                <Slider fx:id="pathCountSlider" min="1" max="5" showTickLabels="true" showTickMarks="true" snapToTicks="true"
                         majorTickUnit="1" blockIncrement="1" minorTickCount="0"
                         GridPane.columnIndex="1" GridPane.rowIndex="0" />
 

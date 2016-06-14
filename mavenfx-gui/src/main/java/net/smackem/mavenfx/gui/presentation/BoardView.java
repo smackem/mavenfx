@@ -2,7 +2,6 @@ package net.smackem.mavenfx.gui.presentation;
 
 import java.util.List;
 
-import net.smackem.mavenfx.gui.application.PathViewModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,10 +16,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import net.smackem.mavenfx.gui.application.BoardViewModel;
+import net.smackem.mavenfx.gui.application.PathViewModel;
 import net.smackem.mavenfx.gui.util.Views;
 import net.smackem.mavenfx.model.Board;
 import net.smackem.mavenfx.model.Cell;
-import net.smackem.mavenfx.model.Path;
 
 /**
  * @author pbo
@@ -137,21 +136,15 @@ public class BoardView extends ScrollPane {
         }
 
         // draw path - best path last, in red
-        final Color bestPathColor = Color.RED;
         final List<PathViewModel> paths = this.model.getPaths();
-        final double saturation = bestPathColor.getSaturation();
-        final double brightness = bestPathColor.getBrightness();
-        double hue = (bestPathColor.getHue() + (paths.size() - 1) * 60.0) % 360.0;
 
         for (int index = paths.size() - 1; index >= 0; index--) {
             final PathViewModel path = paths.get(index);
-            dc.setFill(Color.hsb(hue, saturation, brightness));
+            dc.setFill(path.getStroke());
 
             for (final Cell cell : path.getCells()) {
                 dc.fillRect(cell.getX() * CELL_LENGTH, cell.getY() * CELL_LENGTH, CELL_LENGTH, CELL_LENGTH);
             }
-
-            hue = (hue - 60.0) % 360.0;
         }
 
         // draw grid

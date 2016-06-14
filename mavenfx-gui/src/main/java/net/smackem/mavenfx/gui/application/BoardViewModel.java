@@ -1,6 +1,12 @@
 package net.smackem.mavenfx.gui.application;
 
-import javafx.beans.property.*;
+import java.io.IOException;
+import java.util.stream.Collectors;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
@@ -8,24 +14,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritablePixelFormat;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import net.smackem.mavenfx.model.Board;
 import net.smackem.mavenfx.model.Cell;
-import net.smackem.mavenfx.model.Path;
-
-import java.io.IOException;
-import java.util.Collection;
-import java.util.stream.Collectors;
 
 public final class BoardViewModel {
     private final ReadOnlyObjectWrapper<Board> board = new ReadOnlyObjectWrapper<>();
     private final ReadOnlyObjectWrapper<Image> image = new ReadOnlyObjectWrapper<>();
     private final ObservableList<PathViewModel> paths = FXCollections.observableArrayList();
-    private final ObservableList<PathViewModel> immutablePaths = FXCollections.unmodifiableObservableList(this.paths);
+    private final ObservableList<PathViewModel> immutablePaths;
     private final ReadOnlyObjectWrapper<Cell> originCell = new ReadOnlyObjectWrapper<>();
     private final ReadOnlyObjectWrapper<Cell> destinationCell = new ReadOnlyObjectWrapper<>();
     private final IntegerProperty pathCount = new SimpleIntegerProperty(3);
 
     public BoardViewModel() {
+        this.immutablePaths = FXCollections.unmodifiableObservableList(this.paths);
+
         this.pathCount.addListener((prop, oldVal, newVal) -> {
             findPaths();
         });
@@ -102,13 +106,27 @@ public final class BoardViewModel {
         final Board board = this.board.get();
         final Cell origin = this.originCell.get();
         final Cell destination = this.destinationCell.get();
+        final PathPaintGenerator paintGenerator = new PathPaintGenerator();
 
         if (board != null && origin != null && destination != null) {
             this.paths.setAll(
                 board.findPaths(origin, destination, this.pathCount.get())
                     .stream()
-                    .map(path -> new PathViewModel(path, null))
+                    .map(path -> new PathViewModel(path, paintGenerator.next()))
                     .collect(Collectors.toList()));
+        }
+    }
+
+    private static class PathPaintGenerator {
+        final Color firstColor = Color.RED;
+        double hue;
+
+        Paint next() {
+            final double saturation = firstColor.getSaturation();
+            final double brightness = firstColor.getBrightness();
+            final Color result = Color.hsb(this.hue, saturation, brightness);
+            this.hue = (this.hue + 60.0) % 360.0;
+            return result;
         }
     }
 }
