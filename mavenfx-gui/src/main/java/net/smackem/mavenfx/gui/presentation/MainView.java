@@ -1,19 +1,10 @@
 package net.smackem.mavenfx.gui.presentation;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import javafx.beans.property.ObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -23,6 +14,11 @@ import net.smackem.mavenfx.gui.application.BoardViewModel;
 import net.smackem.mavenfx.gui.application.MainViewModel;
 import net.smackem.mavenfx.gui.application.PathViewModel;
 import net.smackem.mavenfx.gui.util.Views;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author pbo
@@ -32,12 +28,13 @@ public class MainView extends BorderPane {
     private static Logger log = LoggerFactory.getLogger(MainView.class);
     private final MainViewModel model;
     private final Stage mainStage;
+    private final ObjectProperty<Integer> pathCountProperty;
 
     @FXML
     private Pane boardPane;
 
     @FXML
-    private Slider pathCountSlider;
+    private ChoiceBox<Integer> pathCountChoiceBox;
 
     @FXML
     private ListView<PathViewModel> pathsListView;
@@ -55,9 +52,12 @@ public class MainView extends BorderPane {
         final BoardView boardView = new BoardView(boardViewModel);
         this.boardPane.getChildren().add(boardView);
 
-        this.pathCountSlider.valueProperty().bindBidirectional(boardViewModel.pathCountProperty());
+        this.pathCountChoiceBox.getItems().addAll(1, 2, 3, 4, 5);
+        this.pathCountProperty = boardViewModel.pathCountProperty().asObject();
+        this.pathCountChoiceBox.valueProperty().bindBidirectional(this.pathCountProperty);
+
         this.pathsListView.setCellFactory(listView -> new ColorRectCell());
-        this.pathsListView.itemsProperty().setValue(boardViewModel.getPaths());
+        this.pathsListView.setItems(boardViewModel.getPaths());
     }
 
     /////////////////////////////////////////////////////////////////
