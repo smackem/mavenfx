@@ -20,7 +20,7 @@
 
                 <Label text="Diagonals:"
                        GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                <Spinner fx:id="diagonalsValueSlider" min="0" max="100"
+                <Spinner fx:id="diagonalsValueSpinner" min="0" max="100"
                          GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <Label text="Turns:"

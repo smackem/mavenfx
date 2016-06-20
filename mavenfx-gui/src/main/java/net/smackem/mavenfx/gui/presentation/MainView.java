@@ -39,6 +39,9 @@ public class MainView extends BorderPane {
     @FXML
     private ListView<PathViewModel> pathsListView;
 
+    @FXML
+    private Spinner<Integer> diagonalsValueSpinner;
+
     /**
      * Initializes a new instance of {@link MainView}.
      */
@@ -55,6 +58,11 @@ public class MainView extends BorderPane {
         this.pathCountChoiceBox.getItems().addAll(1, 2, 3, 4, 5);
         this.pathCountProperty = boardViewModel.pathCountProperty().asObject();
         this.pathCountChoiceBox.valueProperty().bindBidirectional(this.pathCountProperty);
+
+        this.diagonalsValueSpinner.setValueFactory(
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(Integer.MIN_VALUE, Integer.MAX_VALUE));
+        this.diagonalsValueSpinner.getValueFactory().valueProperty().bind(
+            boardViewModel.pathCountProperty().add(100).multiply(2).asObject());
 
         this.pathsListView.setCellFactory(listView -> new ColorRectCell());
         this.pathsListView.setItems(boardViewModel.getPaths());
