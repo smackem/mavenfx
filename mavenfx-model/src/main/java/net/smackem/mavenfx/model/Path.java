@@ -102,10 +102,6 @@ public final class Path<TNode> {
 
     /////////////////////////////////////////////////////////////////
 
-    private Path(TNode head) {
-        this(head, null, 0);
-    }
-
     private Path(TNode head, Path<TNode> tail, double totalCost) {
         Objects.requireNonNull(head);
 
@@ -114,7 +110,11 @@ public final class Path<TNode> {
         this.totalCost = totalCost;
     }
 
-    private Path<TNode> addStep(TNode step, double stepCost) {
+    Path(TNode head) {
+        this(head, null, 0);
+    }
+
+    Path<TNode> addStep(TNode step, double stepCost) {
         return new Path<>(step, this, this.totalCost + stepCost);
     }
 

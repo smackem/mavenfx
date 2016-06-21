@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27c381d-dcf7-4e4d-80a0-0b8e0e0fad32" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_all_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mavenfx-model/src/test/java/net/smackem/mavenfx/model/PathTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java" afterPath="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml" afterPath="$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-gui/mavenfx-gui.iml" afterPath="$PROJECT_DIR$/mavenfx-gui/mavenfx-gui.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-model/mavenfx-model.iml" afterPath="$PROJECT_DIR$/mavenfx-model/mavenfx-model.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Path.java" afterPath="$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Path.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mavenfx-parent.iml" afterPath="$PROJECT_DIR$/mavenfx-parent.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="mavenfx-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,15 +43,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5213794">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#3076#3077#0" expanded="true" />
                 <element signature="e#3147#3148#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Path.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Path.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <folding>
+                <element signature="e#3421#3422#0" expanded="true" />
+                <element signature="e#3493#3494#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PathTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mavenfx-model/src/test/java/net/smackem/mavenfx/model/PathTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9559748">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,6 +141,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -128,7 +158,6 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/MainViewModel.java" />
-        <option value="$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Path.java" />
         <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/PathViewModel.java" />
         <option value="$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Board.java" />
         <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/application/BoardViewModel.java" />
@@ -136,6 +165,9 @@
         <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/App.java" />
         <option value="$PROJECT_DIR$/mavenfx-gui/src/main/resources/fxml/MainView.fxml" />
         <option value="$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Path.java" />
+        <option value="$PROJECT_DIR$/mavenfx-model/src/test/java/net/smackem/mavenfx/model/PathTest.java" />
       </list>
     </option>
   </component>
@@ -169,7 +201,7 @@
       <showMembers />
       <showModules />
       <showLibraryContents />
-      <hideEmptyPackages />
+      <hideEmptyPackages Scope="true" />
       <abbreviatePackageNames />
       <autoscrollToSource />
       <autoscrollFromSource />
@@ -355,6 +387,16 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mavenfx-model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -380,6 +422,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="910" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="net.smackem.mavenfx.model" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
     <UpdatedFiles>
@@ -494,7 +545,33 @@
       </FILE-GROUP>
     </UpdatedFiles>
   </component>
-  <component name="RunManager" selected="Application.mavenFX GUI">
+  <component name="RunManager" selected="JUnit.PathTest">
+    <configuration default="false" name="PathTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="net.smackem.mavenfx.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="mavenfx-model" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="net.smackem.mavenfx.model" />
+      <option name="MAIN_CLASS_NAME" value="net.smackem.mavenfx.model.PathTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -788,9 +865,15 @@
       <envs />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.mavenFX GUI" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.PathTest" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PathTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -851,8 +934,31 @@
       <option name="project" value="LOCAL" />
       <updated>1466108660167</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="binding test">
+      <created>1466453270735</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1466453270735</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="PathTest - 2016.06.21 at 21h 32m 16s.xml">
+      <configuration name="PathTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathTest - 2016.06.21 at 21h 33m 39s.xml">
+      <configuration name="PathTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathTest - 2016.06.21 at 21h 36m 24s.xml">
+      <configuration name="PathTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathTest - 2016.06.21 at 21h 45m 11s.xml">
+      <configuration name="PathTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathTest - 2016.06.21 at 22h 02m 54s.xml">
+      <configuration name="PathTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -865,7 +971,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" x="475" y="129" width="422" height="591" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -902,7 +1008,8 @@
     <MESSAGE value="fixed listview cellfactory, added PathViewModel" />
     <MESSAGE value="little things" />
     <MESSAGE value="replaced path count slider with choicebox" />
-    <option name="LAST_COMMIT_MESSAGE" value="replaced path count slider with choicebox" />
+    <MESSAGE value="binding test" />
+    <option name="LAST_COMMIT_MESSAGE" value="binding test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -927,14 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18129496">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1003,19 +1102,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Path.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-          <folding>
-            <element signature="e#3137#3138#0" expanded="false" />
-            <element signature="e#3172#3173#0" expanded="false" />
-            <element signature="e#3905#3906#0" expanded="false" />
-            <element signature="e#3987#3988#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1122,12 +1208,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mavenfx-gui/src/main/java/net/smackem/mavenfx/gui/presentation/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5213794">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#3076#3077#0" expanded="true" />
             <element signature="e#3147#3148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39280576">
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavenfx-model/src/main/java/net/smackem/mavenfx/model/Path.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding>
+            <element signature="e#3421#3422#0" expanded="true" />
+            <element signature="e#3493#3494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavenfx-model/src/test/java/net/smackem/mavenfx/model/PathTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9559748">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1184,11 +1298,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>mavenfx-gui</last-edited>
+          <last-edited>mavenfx-model</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
