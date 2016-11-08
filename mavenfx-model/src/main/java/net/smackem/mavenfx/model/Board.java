@@ -67,12 +67,10 @@ public final class Board {
 
         while (maxPathCount-- > 0) {
             final Path<Cell> path = Path.findPath(origin, destination,
-                    (originPath, destCell) -> {
-                        double weight = calculateEdgeWeight(originPath, destCell);
-                        if (destCell != destination && usedCells.contains(destCell))
-                            weight = Integer.MAX_VALUE;
-                        return weight;
-                    },
+                    (originPath, destCell) ->
+                        destCell != destination && usedCells.contains(destCell)
+                        ? Integer.MAX_VALUE
+                        : calculateEdgeWeight(originPath, destCell),
                     cell -> calculateDistance(cell, destination),
                     this::collectNeighbours);
 
